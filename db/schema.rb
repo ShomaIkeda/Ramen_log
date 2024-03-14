@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2024_03_07_235715) do
     t.string "title", null: false
     t.string "eated_menu", null: false
     t.string "comment", null: false
+    t.float "score", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 2024_03_07_235715) do
   create_table "shops", force: :cascade do |t|
     t.string "shop_name", null: false
     t.string "address", null: false
-    t.string "relephone_number", null: false
+    t.string "telephone_number", null: false
     t.string "opening_time", null: false
     t.string "holiday", null: false
     t.datetime "created_at", precision: 6, null: false

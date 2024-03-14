@@ -6,6 +6,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.string :title, null: false
       t.string :eated_menu, null: false
       t.string :comment, null: false
+      t.float :score, null: false 
       
       t.timestamps
       
