@@ -1,5 +1,4 @@
-class Public::ShopsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::ShopsController < ApplicationController
   
   def new
     @shop = Shop.new
@@ -12,7 +11,7 @@ class Public::ShopsController < ApplicationController
   
   def create
     @shop = Shop.new(shop_params)
-    @shop.save ? (redirect_to shop_path(@shop)) : (render :new)
+    @shop.save ? (redirect_to admin_item_path(@item)) : (render :new)
   end
   
    def show
@@ -30,5 +29,6 @@ class Public::ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:shop_name, :address, :telephone_number, :opening_time, :holiday, )
   end
+
 
 end
