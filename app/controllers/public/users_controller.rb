@@ -1,14 +1,17 @@
 class Public::UsersController < ApplicationController
   
-  before_action :authenticate_admin!
+  before_action :authenticate_user!
   
   def show
+    User.find(params[:id])
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
     if @user.update(user_params)
       redirect_to mypage_path, notice: '会員情報の更新が完了しました。'
     else
@@ -20,22 +23,21 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
-    @customer.update(is_active: false)
+    @user.update(is_active: false)
     reset_session
     redirect_to root_path
   end
-
-  private
-
-  def set_current_customer
-    @customer = current_customer
+  
+  def mypage
+    @user = current_user
   end
+
+
   
-  
-  
-   private
+private
 
   def user_params
     params.require(:user).permit(:nickname, :is_active )
   end
+
 end

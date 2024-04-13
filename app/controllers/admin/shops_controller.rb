@@ -12,10 +12,11 @@ class Admin::ShopsController < ApplicationController
   
   def create
     @shop = Shop.new(shop_params)
-    @shop.save ? (redirect_to admin_item_path(@item)) : (render :new)
+    @shop.save ? (redirect_to admin_shop_path(@shop)) : (render :new)
   end
   
    def show
+     @shop = Shop.find(params[:id])
    end
 
   def edit

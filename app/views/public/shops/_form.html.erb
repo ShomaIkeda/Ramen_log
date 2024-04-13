@@ -1,5 +1,5 @@
-<%= form_with model:shop, url: url do |f| %>
-	<%= render 'layouts/error_messages', resource: shop %>
+<%= form_with model:shop,method: target, url: url do |f| %>
+	<%= render 'layouts/error_messages', resource: @shop %>
 	<div class="flex">
 		
 		<table class="user_shop_info shop_form">

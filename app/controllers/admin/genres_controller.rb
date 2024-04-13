@@ -1,5 +1,7 @@
 class Admin::GenresController < ApplicationController
+  
   before_action :authenticate_admin!
+  before_action :ensure_genre, only:[:edit,:update]
   def index
     @genre = Genre.new
     @genres = Genre.all
@@ -16,12 +18,14 @@ class Admin::GenresController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
+  
     if @genre.update(genre_params)
       unless @genre.is_active
-        @genre.items.update_all(is_active: false)
+        @genre.menus.update_all(is_active: false)
       end
       redirect_to admin_genres_path
     else

@@ -15,14 +15,32 @@ class Public::ShopsController < ApplicationController
     @shop.save ? (redirect_to shop_path(@shop)) : (render :new)
   end
   
-   def show
-   end
+  def show
+    @shop = Shop.find(params[:id])
+  end
 
   def edit
+    @shop = Shop.find(params[:id])
   end
   
   def update
+    @shop = Shop.find(params[:id])
     @shop.update(shop_params) ? (redirect_to shop_path(@shop)) : (render :edit)
+  end
+  
+  def menu
+    @menu = Menu.new
+    @menus = all_menus.page(params[:page]).per(12)
+  end
+  
+  def review
+   
+    @reviews = all_reviews.page(params[:page])
+    @all_reviews_count = all_reviews.count
+  end
+  
+  def new_review
+     @review = Review.new
   end
   
   private

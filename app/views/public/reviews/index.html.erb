@@ -1,0 +1,21 @@
+<section class="wrapper flex">
+	<div class="inner">
+	
+			<h2 class="section-ttl">レビュー一覧 (全<%= @all_reviews_count %>件)</h2>
+		
+	<table class="user_reviews has_border">
+	<thead>
+	
+	</thead>
+	<tbody>
+		<% @reviews.each do |review| %>
+			<tr>
+				<td><%= link_to review.title,shop_review_path(shop_id: review.shop_id, id: review.id) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+		
+		
+	</div>
+</section>

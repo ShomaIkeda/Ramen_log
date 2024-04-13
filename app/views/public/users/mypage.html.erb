@@ -1,0 +1,18 @@
+<div class="container">
+<h3>マイページ</h3>
+
+<p style="width:50px;">&nbsp;</p>
+
+<strong>登録情報
+
+<%= link_to '編集する',edit_information_path, class: 'btn btn-success' %></strong>
+
+<p style="width:20px;">&nbsp;</p>
+
+<table style="border: 1px solid black; width: 500px;">
+  <tr style="border: 1px solid black; width: 500px;">
+    <th style="border-right: 1px solid black; width: 300px;">ニックネーム</th>
+    <td style="border-right: 1px solid black; width: 500px;"><%= @user.nickname %></td>
+  </tr>
+  
+</table>

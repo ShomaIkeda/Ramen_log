@@ -1,0 +1,25 @@
+<table class="admin_customer_index has_border">
+	<thead>
+
+		<th>ニックネーム</th>
+		<th>会員ステータス</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% users.each do |user| %>
+			<tr>
+
+				<td><%= link_to user.nickname ,admin_user_path(user)%></td>
+
+				<td>
+					<% if user.is_active? %>
+						<span class="text-active">有効</span>
+					<% else %>
+						<span class="text-invalid">退会済み</span>
+					<% end %>
+				</td>
+
+			</tr>
+		<% end %>
+	</tbody>
+</table>

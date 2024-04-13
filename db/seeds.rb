@@ -9,3 +9,8 @@ Admin.create!(
   email: "a@a",
   password: "aaaaaa"
 )
+
+User.create!(
+  email: "i@i",
+  password: "iiiiii"
+)

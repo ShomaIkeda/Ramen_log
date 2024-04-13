@@ -1,1 +1,29 @@
-users#show
+<section class="inner">
+	<h2 class="section-ttl"><%= @user.nickname %>さんのページ</h2>
+	<table class="user_info">
+		<thead>
+			<th></th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			
+			<tr>
+				<td>ニックネーム</td>
+				<td><%= @user.nickname %></td>
+				
+				<td>会員ステータス</td>
+				<td colspan="2">
+					<% if @user.is_active? %>
+						<span class="text-active">有効	</span>					
+					<% else %>
+						<span class="text-invalid">退会済み</span>
+					<% end %>
+				</td>
+			</tr>
+			
+			
+		</tbody>
+	</table>
+	
+</section>

@@ -1,0 +1,16 @@
+<table class="user_shops has_border">
+	<thead>
+		<tr>
+			
+			<th>店舗名</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<% shops.each do |shop| %>
+			<tr>
+				<td><%= link_to shop.shop_name,admin_shop_path(shop.id) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

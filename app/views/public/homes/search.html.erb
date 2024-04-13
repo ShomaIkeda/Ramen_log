@@ -1,0 +1,12 @@
+<section class="inner">
+  <h2 class="section-ttl">検索結果</h2>
+  <% if @result.first %> 
+  	<% if @model == 'user' %>
+  		<%= render 'public/users/index', users: @result %>
+  	<% else %>
+  		<%= render 'public/shops/index', shops: @result %>
+  	<% end %>
+  <% else %>
+  	<h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
+  <% end %>
+</section>
