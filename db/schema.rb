@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2024_04_01_045659) do
     t.string "title", null: false
     t.string "eated_menu", null: false
     t.string "comment", null: false
-    t.float "score", null: false
+    t.string "star", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

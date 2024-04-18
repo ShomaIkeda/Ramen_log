@@ -10,7 +10,6 @@ devise_for :users, skip: [:passwords], controllers: {
  root to: "homes#top"
  get 'search' => 'homes#search', as: 'search'
  get 'top', to: 'homes#top'
- get 'about', to: 'homes#about'
  get 'users/mypage' => 'users#mypage', as: 'mypage'
  get 'users/information/edit' => 'users#edit', as: 'edit_information'
  patch 'users/information' => 'users#update', as: 'update_information'

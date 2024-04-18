@@ -16,8 +16,8 @@ class Public::MenusController < ApplicationController
   
   def create
     shop = Shop.find(params[:shop_id])
-    
-    @menu = Review.new(menu_params)
+    genre = Genre.find(menu_params[:genre_id])
+    @menu = Menu.new(menu_params)
     @menu.shop_id = shop.id
     @menu.genre_id = genre.id
     @menu.save ? (redirect_to shop_menu_path(shop.id, @menu.id)) : (render :new)

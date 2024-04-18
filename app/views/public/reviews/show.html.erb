@@ -12,10 +12,25 @@
 			<p class="mr-1">コメント</p>
 			<p><%= @review.comment %></p>
 		</div>
-		<div class="d-flex">
-			<p class="mr-1">スコア</p>
-			<p><%= @review.score %></p>
-		</div>
+
+	<!--ここからraty-->
+	<div class="" id="star">
+  </div>
+  <script>
+		var elem = document.getElementById("star");
+		var opt = {
+		    size     : 36,
+		    starOff:  '<%= asset_path('star-off.png') %>',
+		    starOn : '<%= asset_path('star-on.png') %>',
+		    scoreName: 'review[star]',
+		    score: <%= @review.star %>,
+		    half: false,
+		}
+
+		raty(elem, opt);
+  </script>
+   <!--ここまで-->
+
 		<div class="d-flex">
 			<p class="mr-1">投稿者</p>
 			<p><%= @review.user.email %></p>
@@ -25,11 +40,11 @@
 			<p><%= @review.shop.shop_name %></p>
 		</div>
 	</div>
-	
+
 	<div>
   <p>コメント件数：<%= @review.review_comments.count %></p>
   <% @review.review_comments.each do |review_comment| %>
-    
+
     <%= review_comment.user.name %>
     <%= review_comment.created_at.strftime('%Y/%m/%d') %><%= review_comment.comment %>
   <% end %>

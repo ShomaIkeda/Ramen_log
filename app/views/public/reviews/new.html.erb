@@ -23,17 +23,32 @@
 					<td><%= f.label :comment, "コメント" %></td>
 					<td><%= f.text_field :comment %> </td>
 				</tr>
-				<tr>
-					<td><%= f.label :score, "スコア" %></td>
-					<td><%= f.text_field :score %> </td>
-				</tr>
-
-
-
 			</tbody>
 		</table>
-		<div class="flex align-center pl5">
-			<%= f.submit "投稿", class: "btn btn-primary" %>
-		</div>
+　　</div>
+ 	<div>
+ 	<!--ここからraty-->
+	<div class="form-group row">
+	    <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+	    <%= f.hidden_field :star, id: :review_star %>
+	    <div id="star"></div>
+　　</div>
+  	<script>
+		var elem = document.getElementById("star");
+		var opt = {
+		    size     : 36,
+		    starOff:  '<%= asset_path('star-off.png') %>',
+		    starOn : '<%= asset_path('star-on.png') %>',
+		    scoreName: 'review[star]',
+		    half: false,
+		}
+
+		raty(elem, opt);
+  	</script>
+   	<!--ここまで-->
+ 	</div>
+	<div class="flex align-center pl5">
+		<%= f.submit "投稿", class: "btn btn-primary" %>
+	</div>
 	</div>
 <% end %>

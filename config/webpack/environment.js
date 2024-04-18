@@ -14,5 +14,6 @@ environment.plugins.prepend(
   })
 )
 
+window.$ = window.jQuery = require('jquery');
 module.exports = environment
 

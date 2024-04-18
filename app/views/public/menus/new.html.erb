@@ -11,9 +11,15 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%= f.label :menu, "メニュー" %></td>
-					<td><%= f.text_field :menu %></td>
+					<td><%= f.label :name, "メニュー名" %></td>
+					<td><%= f.text_field :name %></td>
 				</tr>
+				
+				<tr>
+					<td><%= f.label :price, "価格" %></td>
+					<td><%= f.text_field :price %></td>
+				</tr>
+				
 				
 				<tr>
 					<td><%= f.label :genre_id, "ジャンル" %></td>
@@ -27,5 +33,5 @@
 			<%= f.submit "投稿", class: "btn btn-primary" %>
 		</div>
 	</div>
-<% end %>
+<% end %>..
 
