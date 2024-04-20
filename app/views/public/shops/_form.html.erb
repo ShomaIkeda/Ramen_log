@@ -1,42 +1,43 @@
 <%= form_with model:shop,method: target, url: url do |f| %>
 	<%= render 'layouts/error_messages', resource: @shop %>
+<div class="flex">
 	<div class="flex">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+					<h5 class="text-dark bg-light p-4 mb-0">店舗新規登録</h5>
+						<div class="form-body p-4">
+<form>
+	
+	<div><%= f.label :shop_name, "店舗名" %></div>
+	<div><%= f.text_field :shop_name %></div>
+				
+	<div><%= f.label :address, "住所" %></div>
+	<div><%= f.text_field :address %></div>
+								
+	<div><%= f.label :telephone_number, "電話番号" %></div>
+	<div><%= f.text_field :telephone_number %> </div>
+				
+				
+	<div><%= f.label :opening_time, "営業時間" %></div>
+	<div><%= f.text_field :opening_time %></div>
+				
+				
+				
+	<div><%= f.label :holiday, "定休日" %></div>
+	<div><%= f.text_field :holiday %></div>
 		
-		<table class="user_shop_info shop_form">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><%= f.label :shop_name, "店舗名" %></td>
-					<td><%= f.text_field :shop_name %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :address, "住所" %></td>
-					<td><%= f.text_field :address %></td>
-				</tr>
-			
-				<tr>
-					<td><%= f.label :telephone_number, "電話番号" %></td>
-					<td><%= f.text_field :telephone_number %> </td>
-				</tr>
-				<tr>
-					<td><%= f.label :opening_time, "営業時間" %></td>
-					<td><%= f.text_field :opening_time %> </td>
-				</tr>
-				
-				<tr>
-					<td><%= f.label :holiday, "定休日" %></td>
-					<td><%= f.text_field :holiday %> </td>
-				</tr>
-				
-			</tbody>
-		</table>
-		<div class="flex align-center pl5">
+	
+	<div class="flex align-center pl5">
 			<%= f.submit submit, class: "btn btn-primary" %>
+	</div>
+	
+	
+<% end %>
+</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-<% end %>

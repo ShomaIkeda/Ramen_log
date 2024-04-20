@@ -9,8 +9,6 @@ class Public::ReviewsController < ApplicationController
     @reviews = Shop.find(params[:shop_id]).reviews.page(params[:page])
     @all_reviews_count = @reviews.count
     
-    
-    
   end
   
   def create

@@ -33,7 +33,7 @@
 
 		<div class="d-flex">
 			<p class="mr-1">投稿者</p>
-			<p><%= @review.user.email %></p>
+			<p><%= @review.user.nickname %></p>
 		</div>
 		<div class="d-flex">
 			<p class="mr-1">ショップ</p>
@@ -43,9 +43,12 @@
 
 	<div>
   <p>コメント件数：<%= @review.review_comments.count %></p>
+  < %= link_to% >
+  
+  
   <% @review.review_comments.each do |review_comment| %>
 
-    <%= review_comment.user.name %>
+    <%= review_comment.user.nickname %>
     <%= review_comment.created_at.strftime('%Y/%m/%d') %><%= review_comment.comment %>
   <% end %>
 </div>
@@ -54,5 +57,4 @@
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>
-</div>
 </div>

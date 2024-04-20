@@ -1,34 +1,23 @@
 <%= form_with model:@review, url: shop_reviews_path do |f| %>
 	<%= render 'layouts/error_messages', resource: @review %>
-	<div class="flex">
-
-		<table class="user_review_info review_form">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><%= f.label :title, "タイトル" %></td>
-					<td><%= f.text_field :title %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :eated_menu, "食べたメニュー" %></td>
-					<td><%= f.text_field :eated_menu %></td>
-				</tr>
-
-				<tr>
-					<td><%= f.label :comment, "コメント" %></td>
-					<td><%= f.text_field :comment %> </td>
-				</tr>
-			</tbody>
-		</table>
-　　</div>
- 	<div>
- 	<!--ここからraty-->
-	<div class="form-group row">
+<div class="flex">
+	<div class="container">
+  	  <div class="row no-gutters">
+        <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+          <h5 class="text-dark bg-light p-4 mb-0">レビュー投稿</h5>
+            <div class="form-body p-4">
+      	      <form>
+      		    <div><%= f.label :title, "タイトル" %></div>
+			    <div><%= f.text_field :title %></div>
+				
+			    <div><%= f.label :eated_menu, "食べたメニュー" %></div>
+			    <div><%= f.text_field :eated_menu %></div>
+				
+			    <div><%= f.label :comment, "コメント" %></div>
+			    <div><%= f.text_area :comment %> </div>
+			    
+			    	<!--ここからraty-->
+	<div class="form-group row",mt-2>
 	    <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
 	    <%= f.hidden_field :star, id: :review_star %>
 	    <div id="star"></div>
@@ -46,9 +35,25 @@
 		raty(elem, opt);
   	</script>
    	<!--ここまで-->
- 	</div>
-	<div class="flex align-center pl5">
+   	<div class="flex align-center pl5">
 		<%= f.submit "投稿", class: "btn btn-primary" %>
 	</div>
+			    
+			    
+		      </form>
+				
+			
+		
+            </div>
+         </div>
+  	  </div>
 	</div>
+</div>
+ 	
+ 	
+ 	
+ 
+ 	
+	
+	
 <% end %>

@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.integer :user_id, null: false
       t.string :title, null: false
       t.string :eated_menu, null: false
-      t.string :comment, null: false
+      t.text :comment, null: false
       t.string :star, null: false
       
       t.timestamps
