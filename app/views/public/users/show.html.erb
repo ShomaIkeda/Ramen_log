@@ -1,17 +1,14 @@
 <section class="inner">
 	<h2 class="section-ttl"><%= @user.nickname %>さんのページ</h2>
-	<table class="user_info">
+	<table class="table">
 		<thead>
-			<th></th>
-			<th></th>
-			<th></th>
-		</thead>
+		
 		<tbody>
 			
 			<tr>
 				<td>ニックネーム</td>
 				<td><%= @user.nickname %></td>
-				
+			</tr>	
 				<td>会員ステータス</td>
 				<td colspan="2">
 					<% if @user.is_active? %>

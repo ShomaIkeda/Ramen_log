@@ -1,19 +1,12 @@
 <section class="wrapper flex">
 	<div class="inner">
-		<% if params[:genre_id] %>
-			<h2 class="section-ttl"><%= @genre.name %>の商品一覧 (全<%= @all_menus_count %>件)</h2>
-		<% else %>
-			<h2 class="section-ttl">メニュー一覧 (全<%= @all_menus_count %>件)</h2>
-		<% end %>
-		<h3 class="text-right">
-			<%= link_to "+", new_shop_menu_path, class: "new_shop_menu" %>
-		</h3>
-		<% if @menus.first %> 
+
+		<% if @menus.first %>
 			<%= render 'public/menus/index', menus: @menus %>
 			<%= paginate @menus %>
 		<% else %>
-			<h3>対応するメニューはありませんでした。</h3>
-			<%= link_to 'メニュー新規登録',new_shop_menu_path %>..
+			<h3>登録されているメニューはありません。</h3>
+			<h2><%= link_to 'メニュー新規登録',new_shop_menu_path %></h2>
 		<% end %>
 	</div>
 </section>

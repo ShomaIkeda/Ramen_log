@@ -33,17 +33,17 @@
 
 		<div class="d-flex">
 			<p class="mr-1">投稿者</p>
-			<p><%= @review.user.nickname %></p>
+			<p><%= link_to @review.user.nickname,user_path %></p>
 		</div>
 		<div class="d-flex">
-			<p class="mr-1">ショップ</p>
-			<p><%= @review.shop.shop_name %></p>
+			<p class="mr-1">店舗名</p>
+			<p><%= link_to @review.shop.shop_name,shop_path %></p>
 		</div>
 	</div>
 
 	<div>
   <p>コメント件数：<%= @review.review_comments.count %></p>
-  < %= link_to% >
+  < %= link_to "コメント一覧へ"% >
   
   
   <% @review.review_comments.each do |review_comment| %>

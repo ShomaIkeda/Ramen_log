@@ -1,1 +1,36 @@
-<%= link_to 'メニュー新規登録',new_shop_menu_path %>
+
+
+<section class="wrapper flex">
+	<div class="inner">
+
+			<h2 class="section-ttl">メニュー一覧 (全<%= @all_menus_count %>件)</h2>
+
+	<table class="table">
+	<thead>
+
+	</thead>
+	<tbody>
+	  <th>メニュー名</th>
+			<th>価格</th>
+			<th>ジャンル</th>
+			<th></th>
+		<% @menus.each do |menu| %>
+
+
+			<tr>
+				<td><%= menu.name %></td>
+				<td><%= menu.price %></td>
+				<td><%= menu.genre.name %></td>
+				<td><%= link_to "削除", shop_menu_path(@shop,menu.id), method: :delete, "data-confirm" => "#{menu.name}をメニューから削除します。よろしいでしょうか？", class: "btn btn-danger" %></td>
+
+			</tr>
+
+
+		<% end %>
+	</tbody>
+</table>
+<h4><%= link_to 'メニュー新規登録',new_shop_menu_path %></h4>
+
+
+	</div>
+</section>
