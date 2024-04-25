@@ -1,0 +1,12 @@
+<section class="wrapper flex">
+	<div class="inner">
+
+		<% if @menus.first %>
+			<%= render 'admin/menus/index', menus: @menus %>
+			<%= paginate @menus %>
+		<% else %>
+			<h3>登録されているメニューはありません。</h3>
+
+		<% end %>
+	</div>
+</section>

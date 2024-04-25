@@ -10,11 +10,15 @@ class Admin::ReviewsController < ApplicationController
   
   def show
      @review = Review.find(params[:id])
-     @review_comment = ReviewComment.new
+    
   end
   
   
   def destroy
+    if @review.destroy
+      redirect_to reviews_path
+    end
+    
     
   end
   

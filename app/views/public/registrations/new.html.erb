@@ -12,13 +12,13 @@
       <tbody>
        
         <tr>
-          <td>ニックネーム</td>
-          <td><%= f.label :nickname, "ニックネーム" %> <%= f.text_field :nickname, :placeholder =>"ラーメン太郎" %></td>
+          <td><%= f.label :nickname, "ニックネーム" %></td>
+          <td colspan="2"><%= f.text_field :nickname, :placeholder =>"ラーメン太郎" %></td>
           
         </tr>
         <tr>
           <td><%= f.label :email, "メールアドレス" %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+          <td colspan="2"><%= f.email_field :email, autocomplete: "email",:placeholder =>"ramen@ranen.com" %></td>
         </tr>
         
         

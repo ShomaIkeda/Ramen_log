@@ -1,5 +1,5 @@
 class Public::ShopsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,except: [:show, :index]
 
   def new
     @shop = Shop.new

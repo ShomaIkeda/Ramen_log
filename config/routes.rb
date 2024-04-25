@@ -57,7 +57,9 @@ end
  end
 
 resources :genres,only: [:index,:create,:edit,:update]
-resources :users, only: [:index, :show, :edit, :update]
+
+resources :users, only: [:index, :show, :edit, :update] 
+  
 
 end
 end

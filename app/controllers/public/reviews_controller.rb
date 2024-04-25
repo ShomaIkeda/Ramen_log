@@ -8,7 +8,6 @@ class Public::ReviewsController < ApplicationController
   def index
     @reviews = Shop.find(params[:shop_id]).reviews.page(params[:page])
     @all_reviews_count = @reviews.count
-    
   end
   
   def create

@@ -2,12 +2,12 @@
 	<h2 class="section-ttl">店舗詳細</h2>
 	<div class="flex">
 		<div>
-		
+
 		</div>
 		<table class="shop_info">
 			<thead>
 				<tr>
-					<th></th>	
+					<th></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -20,31 +20,33 @@
 					<td>住所</td>
 					<td><%= @shop.address %></td>
 				</tr>
-				
+
 				<tr>
 					<td>電話番号</td>
 					<td><%= @shop.telephone_number %></td>
 				</tr>
-				
+
 				<tr>
 					<td>営業時間</td>
 					<td><%= @shop.opening_time %></td>
 				</tr>
-				
+
 				<tr>
 					<td>定休日</td>
 					<td><%= @shop.holiday %></td>
 				</tr>
-				
+
 			</tbody>
 		</table>
 		<div class="flex align-center pl5">
-			<%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-success" %>
+			<%= link_to "編集する", edit_admin_shop_path(@shop), class: "btn btn-success" %>
 		</div>
-		
+
 		<div class ="flex align-center pl5">
 			<%= link_to "レビュー一覧", admin_shop_reviews_path(@shop.id) %>
 		</div>
-		
-		
+
+		</div>
+		 	<%= link_to "メニュー一覧", admin_shop_menus_path(@shop.id) %>
+		<div>
 	</div>

@@ -5,63 +5,73 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
- <body class = "d-flex flex-column vh-100">
+ <body>
     <header class="<%= (admin_signed_in? ? "admin_header" : "" ) %>">
-      <div class="header-content">
-      <%= link_to 'RamenLog', (admin_signed_in? ? admin_top_path : root_path ), class: "logo" %>
-        <ul class="flex">
-          
-          <% if admin_signed_in? %>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="justify-content-end row w-100">
+          <h1><%= link_to 'RamenLog', (admin_signed_in? ? admin_top_path : root_path ), class: "logo col-2" %></h1>
+            <div class="collapse navbar-collapse show col-10" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                  <% if admin_signed_in? %>
+                  <li class="ml-2"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+
+                  <% elsif user_signed_in? %>
+                     <p>ようこそ、<%= current_user.nickname %>さん!</p>
+                    <li class="ml-2" ><%= link_to 'マイページ', mypage_path %></li>
+                    <li class="ml-2" ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+
+                  <% else %>
+
+                    <li class="ml-2"><%= link_to '店舗一覧', shops_path %></li>
+                    <li class="ml-2"><%= link_to '新規登録', new_user_registration_path %></li>
+                    <li class="ml-2"><%= link_to 'ログイン', new_user_session_path %></li>
+                  <% end %>
+                 </ul>
+                 </div>
+           <div class="search">
+             
+            <% if admin_signed_in? %>
+
            <%= form_tag(admin_search_path, method: :get) do %>
-            <%= text_field_tag "search[content]", "", :placeholder =>"店舗名" %>
+            <%= text_field_tag "search[content]", "", :placeholder =>"キーワード" %>
             <%= select_tag "search[model]", options_for_select({ "会員" => "user", "店舗" => "shop" }) %>
             <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
             <%= submit_tag '検索', class: "btn btn-primary" %>
           <% end %>
-            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-          
           <% elsif user_signed_in? %>
-            <p>ようこそ、<%= current_user.nickname %>さん!</p>
-            
-             <%= form_tag(search_path, method: :get) do %>
-            <%= text_field_tag "search[content]", "", :placeholder =>"店舗名" %>
+            <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag "search[content]", "", :placeholder =>"キーワード" %>
             <%= select_tag "search[model]", options_for_select({ "会員" => "user", "店舗" => "shop" }) %>
             <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
             <%= submit_tag '検索', class: "btn btn-primary" %>
           <% end %>
-            
-            <li><%= link_to 'マイページ', mypage_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          
+
+
           <% else %>
            <%= form_tag(search_path, method: :get) do %>
-            <%= text_field_tag "search[content]", "", :placeholder =>"店舗名" %>
+            <%= text_field_tag "search[content]", "", :placeholder =>"キーワード" %>
             <%= select_tag "search[model]", options_for_select({ "会員" => "user", "店舗" => "shop" }) %>
             <%= select_tag "search[method]", options_for_select({ "部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "perfect" }) %>
             <%= submit_tag '検索', class: "btn btn-primary" %>
           <% end %>
-            <li><%= link_to '店舗一覧', shops_path %></li>
-            <li><%= link_to '新規登録', new_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
+
+
           <% end %>
-        </ul>
-       
-        
-         
-        
-      </div>
+           </div>
+          </div>
+      </nav>
     </header>
 
     <main>
       <%= yield %>
     </main>
 
-    
+
   </body>
 </html>
