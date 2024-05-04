@@ -1,5 +1,5 @@
-<div>
-	<div>
+<div class="container">
+	<div class="review">
 		<div class="d-flex">
 			<p class="mr-1">タイトル</p>
 			<p><%= @review.title %></p>
@@ -8,14 +8,13 @@
 			<p class="mr-1">食べたメニュー</p>
 			<p><%= @review.eated_menu %></p>
 		</div>
-		<div class="d-flex">
-			<p class="mr-1">コメント</p>
-			<p><%= @review.comment %></p>
-		</div>
+
 
 	<!--ここからraty-->
+ <div class="d-flex">
+ 	<p class="mr-1">評価</p>
 	<div class="" id="star">
-  </div>
+
   <script>
 		var elem = document.getElementById("star");
 		var opt = {
@@ -31,28 +30,43 @@
 		raty(elem, opt);
   </script>
    <!--ここまで-->
+  </div>
+  </div>
 
 		<div class="d-flex">
 			<p class="mr-1">投稿者</p>
-			<p><%= link_to @review.user.nickname,user_path %></p>
+			<p><%= link_to @review.user.nickname,user_path(@user) %></p>
 		</div>
 		<div class="d-flex">
 			<p class="mr-1">店舗名</p>
-			<p><%= link_to @review.shop.shop_name,shop_path %></p>
+			<p><%= link_to @review.shop.shop_name,shop_path(@shop) %></p>
 		</div>
-	</div>
 
+
+		<div class="d-flex">
+			<p class="mr-1">コメント</p>
+			<p><%= @review.comment %></p>
+		</div>
+
+		<% if current_user && @review.user_id == current_user.id %>
+     		<div><%= link_to "削除", review_path(@review, @shop), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %></div>
+     		
+     		<% end %>
+
+	</div>
+	
+	
 	<div>
   <p>コメント件数：<%= @review.review_comments.count %></p>
   <%= link_to "コメント一覧へ",review_review_comments_path(@review) %>
 
   </div>
-  
+<% if user_signed_in? %>
 <div>
   <%= form_with model: [@review, @review_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>
 </div>
-
+<% end %>
 </div>

@@ -1,9 +1,11 @@
 class Public::UsersController < ApplicationController
-  
-  before_action :authenticate_user!
-  
+
+  before_action :authenticate_user!,except: [:show, :index]
+
   def show
     @user = User.find(params[:id])
+    @reviews = @user.reviews.page(params[:page])
+   
   end
 
   def edit
@@ -23,18 +25,25 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
-    @user.update(is_active: false)
-    reset_session
-    redirect_to root_path
+     if current_user # カレントユーザーが存在する場合のみ処理を行う
+      current_user.update(is_active: false) # カレントユーザーのis_activeを更新
+      reset_session
+      redirect_to root_path, notice: "退会処理が完了しました。"
+     else
+      redirect_to root_path, alert: "ログインしていません。"
+     end
   end
-  
+
   def mypage
     @user = current_user
-    
+   
+
   end
 
-
   
+
+
+
 private
 
   def user_params

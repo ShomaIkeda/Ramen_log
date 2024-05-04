@@ -6,8 +6,8 @@ class Admin::ShopsController < ApplicationController
   end
 
   def index
-    @shops = all_shops.page(params[:page])
-    @all_shops_count = all_shops.count
+    @shops = Shop.all.page(params[:page])
+    @all_shops_count = @shops.count
   end
 
   def create
@@ -26,6 +26,14 @@ class Admin::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     @shop.update(shop_params) ? (redirect_to admin_shop_path(@shop)) : (render :edit)
+  end
+  
+  def destroy
+    @shop = Shop.find(params[:id])
+    
+    if @shop.destroy
+    redirect_to admin_shops_path
+    end
   end
 
   private

@@ -20,11 +20,14 @@ devise_for :users, skip: [:passwords], controllers: {
  #get 'shops/:id/reviews' => 'reviews#index', as: 'shop_reviews'
  #get 'shops/:id/reviews/new' => 'shops#new_review', as: 'new_review'
  #resources :reviews, only: [:index,:show,:create,:new,:edit,:update,:destroy]
- resources :users, only: [:index,:show,:edit,:update]
+ resources :users, only: [:index,:show,:edit,:update] do
+     resources :reviews
+     #get 'myreview' => 'users#myreview'
+ end
  resources :shops, only: [:index,:new,:create,:show,:edit,:update] do
 
    resources :reviews
-   resources :menus
+   resources :menus, only: [:index,:new,:create,:destroy]
 
  end
  
@@ -47,9 +50,9 @@ namespace :admin do
 get 'top' => 'homes#top', as: 'top'
 get "about", to: "homes#about"
 get 'search' => 'homes#search', as: 'search'
-resources :shops,only: [:index,:new,:create,:show,:edit,:update] do
+resources :shops do
   resources :reviews, only: [:index,:show,:destroy]
-  resources :menus, only: [:index,:new,:create,:show,:edit,:update,:destroy]
+  resources :menus, only: [:index,:new,:create,:edit,:update,:destroy]
 end
 
  resources :reviews, only: [:index,:show,:destroy] do

@@ -8,7 +8,7 @@ class Review < ApplicationRecord
   
   validates :title, presence: true
   validates :eated_menu, presence: true
-  validates :comment, presence: true
+  validates :comment, presence: true, length:{maximum:1000}
   validates :star, presence: true
  
 end

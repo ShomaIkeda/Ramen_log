@@ -1,23 +1,21 @@
 <section class="wrapper flex">
-	<div class="inner">
-	
-			<h2 class="section-ttl">レビュー一覧 (全<%= @all_reviews_count %>件)</h2>
-		
-	<table class="table">
-	<thead>
-	
-	</thead>
-	<tbody>
-		<% @reviews.each do |review| %>
-			<tr>
-				<td><%= link_to review.title,shop_review_path(shop_id: review.shop_id, id: review.id) %></td>
-				<td><%= review.user.nickname %></td>
-				
-			</tr>
-		<% end %>
-	</tbody>
+  <div class="inner">
+<table class = table>
+    <thead></thead>
+    <tbody>
+        <th>ニックネーム</th>
+        <th>コメント</th>
+        <th>日付</th>
+<% @review_comments.each do |review_comment| %>
+
+  <tr>
+    <td><%= review_comment.user.nickname %></td>
+    <td><%= review_comment.comment %></td>
+    <td><%= review_comment.created_at.strftime('%Y/%m/%d') %></td>
+    <td><%= link_to "削除", admin_review_review_comment_path(@review,review_comment.id), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %></td>
+  </tr>
+  
+  <% end %>
+  
+  </tbody>
 </table>
-		
-		
-	</div>
-</section>

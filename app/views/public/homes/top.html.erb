@@ -2,8 +2,9 @@
 
 
 <section class="wrapper flex">
-	
+
 	<div class="content">
+		
 		<div class="text-center">
 			<p>
 				ようこそ、RamenLogへ!<br>
@@ -11,7 +12,7 @@
 				会員でない方も店舗の閲覧はできますが、<br>
 				レビューの投稿には会員登録が必要になります。
 			</p>
-			
+
 			 <% if user_signed_in? %>
 			<%= link_to '店舗を新規登録する',new_shop_path %>
 			<% elsif %>
@@ -25,8 +26,8 @@
         </div>
       <% end %>
 		</div>
-	
-		
-		
+
+
+
 	</div>
 </section>

@@ -4,12 +4,9 @@
 		<div>
 
 		</div>
-		<table class="shop_info">
+		<table class="table">
 			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-				</tr>
+				
 			</thead>
 			<tbody>
 				<tr>
@@ -40,6 +37,10 @@
 		</table>
 		<div class="flex align-center pl5">
 			<%= link_to "編集する", edit_admin_shop_path(@shop), class: "btn btn-success" %>
+		</div>
+		
+		<div>
+			<%= link_to "削除", admin_shop_path(@shop), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %>
 		</div>
 
 		<div class ="flex align-center pl5">

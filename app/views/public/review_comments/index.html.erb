@@ -3,15 +3,20 @@
 <table class = table>
     <thead></thead>
     <tbody>
-        <th>ニックネーム</th>
+        <th class="col-3">ニックネーム</th>
         <th>コメント</th>
         <th>日付</th>
+        <th></th>
 <% @review_comments.each do |review_comment| %>
 
   <tr>
     <td><%= review_comment.user.nickname %></td>
     <td><%= review_comment.comment %></td>
     <td><%= review_comment.created_at.strftime('%Y/%m/%d') %></td>
+    
+    <% if review_comment.user_id == current_user.id %>
+     <td><%= link_to "削除", review_review_comment_path(@review,review_comment.id), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %></td>
+     <% end %>
   </tr>
   
   <% end %>
