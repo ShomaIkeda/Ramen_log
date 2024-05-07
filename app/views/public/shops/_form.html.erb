@@ -16,11 +16,11 @@
 	<div><%= f.text_field :address %></div>
 								
 	<div><%= f.label :telephone_number, "電話番号" %></div>
-	<div><%= f.text_field :telephone_number %> </div>
+	<div><%= f.text_field :telephone_number, placeholder: "09012345678" %> </div>
 				
 				
 	<div><%= f.label :opening_time, "営業時間" %></div>
-	<div><%= f.text_field :opening_time %></div>
+	<div><%= f.text_field :opening_time, placeholder: "11:00~15:00,17:00~21:00"  %></div>
 				
 				
 				
@@ -29,7 +29,7 @@
 		
 	
 	<div class="flex align-center pl5">
-			<%= f.submit submit, class: "btn btn-primary" %>
+			<%= f.submit submit, class: "btn btn-primary mt-3" %>
 	</div>
 	
 	

@@ -7,6 +7,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @reviews = @user.reviews.page(params[:page])
   end
 
   def edit

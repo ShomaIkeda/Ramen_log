@@ -1,8 +1,11 @@
-<table class="user_shops has_border">
+<table class="table">
 	<thead>
 		<tr>
 			
 			<th>店舗名</th>
+			<th>住所</th>
+			<th>営業時間</th>
+			<th>定休日</th>
 			
 		</tr>
 	</thead>
@@ -10,6 +13,9 @@
 		<% shops.each do |shop| %>
 			<tr>
 				<td><%= link_to shop.shop_name,admin_shop_path(shop.id) %></td>
+				<td><%= shop.address %></td>
+				<td><%= shop.opening_time %></td>
+				<td><%= shop.holiday %></td>
 			</tr>
 		<% end %>
 	</tbody>

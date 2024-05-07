@@ -24,14 +24,15 @@ class Admin::GenresController < ApplicationController
   def update
   
     if @genre.update(genre_params)
-      unless @genre.is_active
-        @genre.menus.update_all(is_active: false)
-      end
       redirect_to admin_genres_path
     else
       render :edit
     end
   end
+  
+ 
+  
+  
 
   private
 
