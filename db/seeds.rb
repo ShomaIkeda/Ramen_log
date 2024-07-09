@@ -10,7 +10,4 @@ Admin.create!(
   password: "aaaaaa"
 )
 
-User.create!(
-  email: "i@i",
-  password: "iiiiii"
-)
+
